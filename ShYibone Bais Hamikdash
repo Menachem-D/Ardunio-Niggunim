@@ -1,0 +1,31 @@
+#include "pitches.h"
+
+int melody[] = {
+  NOTE_C4, NOTE_D4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_A4, NOTE_B4,
+  NOTE_C5, NOTE_B4, NOTE_A4, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_D4,
+  NOTE_C4, NOTE_D4, NOTE_E4, NOTE_F4, NOTE_G4, NOTE_A4, NOTE_B4,
+  NOTE_C5, NOTE_B4, NOTE_A4, NOTE_G4, NOTE_F4, NOTE_E4, NOTE_D4
+};
+
+int durations[] = {
+  4, 4, 4, 4, 4, 4, 4,
+  4, 4, 4, 4, 4, 4, 4,
+  4, 4, 4, 4, 4, 4, 4,
+  4, 4, 4, 4, 4, 4, 4
+};
+
+int songLength = sizeof(melody)/sizeof(melody[0]);
+
+void setup() {
+  //We don't need anything here
+}
+
+void loop() {
+  for (int thisNote = 0; thisNote < songLength; thisNote++){
+    int duration = 2500/ durations[thisNote];
+    tone(8, melody[thisNote], duration);
+    int pause = duration * 1.8;
+    delay(pause);
+    noTone(8);
+  }
+}
